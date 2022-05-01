@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Self-test analyzer</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Puts your self-test here:</h1>
+    <div>
+      <form action="/result" method="post" enctype="multipart/form-data">
+        <textarea name="text" cols="40" rows="30" maxlength="1500000" value="<%= params[:text] %>"></textarea>
+        <p><input type="file" name="file"></p>
+        <p><input type="submit" value="Analyze!"></p>
+      </form>
+    </div>
+    <% unless @error.nil? %>
+      <div class="error"><%= @error %></div>
+    <% end %>
+  </div>
+</body>
+</html>

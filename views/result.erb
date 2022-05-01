@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Self-test analyzer</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Модель</th>
+          <th>Серийный номер</th>
+          <th>Сервисный код</th>
+          <th>МАС адрес</th>
+          <th>Keenetic OS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @model %></td>
+          <td><%= @serial %></td>
+          <td><%= @servicetag %></td>
+          <td><%= @mac %></td>
+          <td><%= @release %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1>Вот, что мы нашли:</h1>
+    <p><b>Последняя перезагрузка:</b></p>
+    <%= @reboot_cause %>
+    <p><b>Проверка доступности нтернет:</b></p>
+    <% @internet_access.each do |line|%>
+      <p><%= line %></p>
+    <% end %>
+
+    <div>
+      <br>
+      <a href="/">Еще раз!</a>
+    </div>
+  </div>
+</body>
+</html>
